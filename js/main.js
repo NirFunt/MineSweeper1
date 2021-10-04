@@ -96,7 +96,9 @@ function renderBoard(board) {
 
 
 function cellClicked(elCell, i, j) {
-
+    if(gGame.lives === 3) document.querySelector('.face').src = 'img/happy.jpg';
+    else if(gGame.lives === 2) document.querySelector('.face').src = 'img/twolife.jpg';
+    else if(gGame.lives === 1) document.querySelector('.face').src = 'img/onelife.jpg';
     if (!gGame.isOn) return;
 
     if (!gIsTime) {
@@ -125,12 +127,14 @@ function cellClicked(elCell, i, j) {
         case 3:
             elCell.innerHTML = `<span style="color: red;"> ${gBoard[i][j].minesAroundCount} </span>`;
             break;
-        case 3:
+        case 4:
             elCell.innerHTML = `<span style="color: purple;"> ${gBoard[i][j].minesAroundCount} </span>`;
             break;
     }
+
     if (gBoard[i][j].isMine) {
         elCell.innerHTML = '<img src="img/bomb.png">';
+        document.querySelector('.face').src = 'img/supprise-face.jpg';
         gGame.lives--;
         document.querySelector('.lives span').innerText = gGame.lives;
         gReveledMines++;
@@ -176,14 +180,30 @@ function checkGameOver() {
     console.log(gGame.shownCount,gGame.markedCount);
     var elEndgame = document.querySelector('.end-game h1');
     if (gGame.lives === 0) {
-        console.log('LOSE');
+        document.querySelector('.face').src = 'img/lose-face.jpg';
+        // console.log('LOSE');
         clearInterval(gTimeInterval);
         gGame.isOn = false;
         elEndgame.innerText = 'You Lose';
         elEndgame.style.display = 'block';
+
+        for (var i = 0; i < gBoard.length; i++) {
+            for (var j = 0; j <gBoard[0].length; j++) {
+                if (gBoard[i][j].isMine) {
+                    gBoard[i][j].isShown = true;
+                    var elMineCell =  document.querySelector(`.cell-${i}-${j}`);
+                    console.log(elMineCell);
+                    elMineCell.classList.remove('cover');
+                    elMineCell.innerHTML = '<img src="img/bomb.png">';
+                }
+            }
+        }
+
     }
+
     else if ((gGame.shownCount === gLevel.size ** 2 - gLevel.mines + gReveledMines) && (gGame.markedCount === gLevel.mines - gReveledMines)) {
-        console.log('WON');
+        // console.log('WON');
+        document.querySelector('.face').src = 'img/won-face.jpg';
         clearInterval(gTimeInterval);
         gGame.isOn = false;
         elEndgame.innerText = 'You Won';
@@ -206,6 +226,26 @@ function expandShown(board, elCell, idxI, idxJ) {
             gGame.shownCount++;
            var elNegCell =  document.querySelector(`.cell-${i}-${j}`);
            elNegCell.classList.remove('cover');
+       
+           
+           switch (gBoard[i][j].minesAroundCount) {
+            case 0 :
+                expandShown(gBoard, elCell, i, j)
+                break;
+            case 1:
+                elNegCell.innerHTML = `<span style="color: blue;"> ${gBoard[i][j].minesAroundCount} </span>`;
+                break;
+            case 2:
+                elNegCell.innerHTML = `<span style="color: green;"> ${gBoard[i][j].minesAroundCount} </span>`;
+                break;
+            case 3:
+                elNegCell.innerHTML = `<span style="color: red;"> ${gBoard[i][j].minesAroundCount} </span>`;
+                break;
+            case 4:
+                elNegCell.innerHTML = `<span style="color: purple;"> ${gBoard[i][j].minesAroundCount} </span>`;
+                break;
+        }
+           
         }
     }
 }
@@ -250,6 +290,7 @@ function setLevel(size, mines) {
 }
 
 function restart() {
+    document.querySelector('.face').src = 'img/happy.jpg';
     gIsTime = false;
     gStartTime = 0;
     gReveledMines = 0;

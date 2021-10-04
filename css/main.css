@@ -22,7 +22,7 @@ td img {
     height: 50px;
 }
 
-.smile {
+.face {
     width: 70px;
     margin: 20px;
     margin: auto;
@@ -38,6 +38,10 @@ div button:hover {
     cursor: pointer;
 }
 
+.end-game {
+    margin-bottom: 20px;
+    height: 50px;
+}
 .end-game h1 {
     color: brown;
     display: none;
