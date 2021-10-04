@@ -1,0 +1,48 @@
+
+body { 
+    text-align: center;
+    background-color: bisque;
+}
+
+table {
+    margin: auto;
+}
+
+ tr, td {
+    width: 50px;
+    height: 50px;
+}
+
+.cover {
+  background-color: gray;  
+}
+
+td img {
+    width: 50px;
+    height: 50px;
+}
+
+.smile {
+    width: 70px;
+    margin: 20px;
+    margin: auto;
+    cursor: pointer;
+}
+
+div button {
+    margin: 5px;
+    background-color: red;
+}
+
+div button:hover {
+    cursor: pointer;
+}
+
+.end-game h1 {
+    color: brown;
+    display: none;
+}
+
+.lives span {
+    color: green;
+}
