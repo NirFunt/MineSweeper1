@@ -91,13 +91,67 @@ function getNegLocations(board, idxI, idxJ) {
 function getEmptyLocations(board) {
   var emptyLocations = [];
   for (var i = 0; i < board.length; i++) {
-
       for (var j = 0; j < board[0].length; j++) {
           if (!board[i][j].isMine) emptyLocations.push({ i: i, j: j });
       }
   }
   return emptyLocations;
 }
+
+// this function get negCellLocations which is the locations of all the neigbouurs of the cell that was clicked, and taking these location off emptyLocations, because we dont want to a bomb to be a neigbouur of the first clicked cell , then update the mines in gBoard 
+function takeClickedNegLocOff(negCellLocations, emptyLocations) {
+  // taking off locations
+  for (var i = 0; i < negCellLocations.length; i++) {
+      for (var j = 0; j < emptyLocations.length; j++) {
+          if (negCellLocations[i].i === emptyLocations[j].i && negCellLocations[i].j === emptyLocations[j].j) {
+              emptyLocations.splice(j, 1);
+          }
+      }
+  }
+
+  // get random locations and insert mines to gBoard
+  for (var i = 0; i < gLevel.mines; i++) {
+      var randomLocation = emptyLocations[getRandomInt(0, emptyLocations.length)];
+      gBoard[randomLocation.i][randomLocation.j].isMine = true;
+  }
+}
+
+
+function getEmptyCoverdLocations(board) {
+  var emptyLocations = [];
+  for (var i = 0; i < board.length; i++) {
+      for (var j = 0; j < board[0].length; j++) {
+          if(board[i][j].isShown) continue;
+          if (!board[i][j].isMine) emptyLocations.push({ i: i, j: j });
+      }
+  }
+  return emptyLocations;
+}
+
+
+
+function copyMatrix (board) {
+  var copyBoard = [];
+  for (var i = 0; i < board.length; i++) {
+      copyBoard[i] = [];
+      for (var j = 0; j < board[0].length; j++) {
+          var cell = board[i][j];
+          copyBoard[i][j] = createCell(cell.minesAroundCount, cell.isShown, cell.isMine,cell.isMarked);
+      }
+  }
+  return copyBoard;
+}
+
+function renderMinesAndAmounts () {
+  for (var i = 0; i < gBoard.length; i++) {
+      for (var j = 0; j < gBoard[0].length; j++) {
+          var elCell = document.querySelector(`.cell-${i}-${j}`);
+          if (gBoard[i][j].isMine && gBoard[i][j].isShown) elCell.innerHTML = '<img src="img/bomb.png">';
+          else if (gBoard[i][j].isShown) elCell.innerHTML = gBoard[i][j].minesAroundCount;
+      }
+  }
+}
+
 
 // get random int exclusive 
 function getRandomInt(min, max) {

@@ -1,11 +1,20 @@
+* {
+    box-sizing: border-box;
+}
 
 body { 
-    text-align: center;
-    background-color: bisque;
+    background-color: lightskyblue;
+    
+}
+
+.main-header {
+position: relative;
+    left: 400px;
 }
 
 table {
-    margin: auto;
+    position: relative;
+    left: 150px;
 }
 
  tr, td {
@@ -18,20 +27,13 @@ table {
 }
 
 td img {
-    width: 50px;
-    height: 50px;
-}
-
-.face {
-    width: 70px;
-    margin: 20px;
-    margin: auto;
-    cursor: pointer;
+    width: 40px;
+    height: 40px;
 }
 
 div button {
-    margin: 5px;
     background-color: red;
+    right: 200px;
 }
 
 div button:hover {
@@ -43,10 +45,150 @@ div button:hover {
     height: 50px;
 }
 .end-game h1 {
-    color: brown;
+    color: rgb(rgb(178, 187, 57), green, blue);
     display: none;
+    position: absolute;
+    left: 270px;
+    bottom: 690px;
+    color: gold;
 }
 
 .lives span {
     color: green;
+    display: inline;
+}
+
+
+.mark {
+    border: hotpink 4px solid ;
+}
+
+
+.all {
+    width: 800px;
+    height:180px;
+    /* background-color:lightgrey; */
+    margin-bottom: 20px;
+}
+
+.hint {
+background-color: gold;
+width: 55px;
+height: 55px;
+border-radius: 50%;
+color: purple;
+padding: 15px;
+font-weight: bold;
+display: inline;
+}
+
+.hint1 {
+  position: absolute;
+  left: 30px;
+}
+.hint2 {
+  position: absolute;
+  left: 90px;
+}
+.hint3 {
+    position: absolute;
+    left: 150px;
+}
+
+.hint-hide {
+    display: none;
+}
+
+.safe-click {
+    height: 100px;
+    position: absolute;
+    left: 50px;
+    bottom: 710px;
+}
+
+.safe-amount {
+    position: absolute;
+    left: 135px;
+    bottom: 700px;
+    padding: 10px;
+    color: hotpink;
+    font-size: 40px;
+}
+
+.face {
+    width: 70px;
+    margin-left: 200px;
+    cursor: pointer;
+    position: absolute;
+    left: 100px;
+}
+
+.lives {
+    display: inline;
+    width: 100px;
+    position: absolute;
+    left: 380px;
+    bottom:820px ;
+}
+
+.time-passed {
+    display: inline;
+    width: 30px;
+}
+
+.clock {
+    display: inline;
+    position: absolute;
+    left: 380px;
+    bottom: 810px;
+}
+
+
+.best-score {
+    display: inline;
+    width: 250px;
+    position: absolute;
+    left: 260px;
+    bottom: 740px;
+}
+
+
+.manual-Btn {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    position: absolute;
+    left: 550px;
+}
+
+.undo { 
+    position: absolute;
+    left: 700px;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: blueviolet;
+}
+
+
+.level4 {
+    position: absolute;
+    left: 550px;
+    bottom: 720px;
+    background-color:chartreuse
+    
+}
+
+.level8 {
+    position: absolute;
+    left: 650px;
+    bottom: 720px;
+    background-color:purple;
+}
+
+.level12 {
+    position: absolute;
+    left: 750px;
+    bottom: 720px;
+    background-color: red ;
 }
