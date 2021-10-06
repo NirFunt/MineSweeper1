@@ -4,22 +4,30 @@
 
 body { 
     background-color: lightskyblue;
-    
+    background-image: url("/img/explode4.png");
+    background-repeat: no-repeat;
+    /* background-position: center center; */
+    /* background-attachment: fixed; */
+    /* background-size: cover; */
 }
 
 .main-header {
-position: relative;
-    left: 400px;
+    position: relative;
+    left: 350px;
+    color:darkorange;
+    font-weight: bold;
 }
 
 table {
-    position: relative;
-    left: 150px;
+    position: absolute;
+    left: 320px;
 }
 
  tr, td {
     width: 50px;
     height: 50px;
+    text-align: center;
+    font-size: 30px;
 }
 
 .cover {
@@ -27,8 +35,8 @@ table {
 }
 
 td img {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
 }
 
 div button {
@@ -48,14 +56,15 @@ div button:hover {
     color: rgb(rgb(178, 187, 57), green, blue);
     display: none;
     position: absolute;
-    left: 270px;
-    bottom: 690px;
+    left: 360px;
+    bottom: 680px;
     color: gold;
 }
 
 .lives span {
-    color: green;
+    color: red;
     display: inline;
+    font-size: 25px;
 }
 
 
@@ -73,8 +82,8 @@ div button:hover {
 
 .hint {
 background-color: gold;
-width: 55px;
-height: 55px;
+width: 60px;
+height: 50px;
 border-radius: 50%;
 color: purple;
 padding: 15px;
@@ -84,18 +93,18 @@ display: inline;
 
 .hint1 {
   position: absolute;
-  left: 30px;
-  bottom: 850px;
+  left: 20px;
+  bottom: 830px;
 }
 .hint2 {
   position: absolute;
   left: 90px;
-  bottom: 850px;
+  bottom: 830px;
 }
 .hint3 {
     position: absolute;
-    left: 150px;
-    bottom: 850px;
+    left: 160px;
+    bottom: 830px;
 }
 
 .hint-hide {
@@ -105,25 +114,26 @@ display: inline;
 .safe-click {
     height: 100px;
     position: absolute;
-    left: 50px;
-    bottom: 730px;
+    left: 60px;
+    bottom: 720px;
 }
 
 .safe-amount {
     position: absolute;
-    left: 135px;
-    bottom: 720px;
+    left: 153px;
+    bottom: 705px;
     padding: 10px;
     color: hotpink;
     font-size: 40px;
 }
 
 .face {
-    width: 70px;
+    width: 100px;
     margin-left: 200px;
     cursor: pointer;
     position: absolute;
-    left: 100px;
+    left: 170px;
+    bottom: 740px;
 }
 
 .lives {
@@ -131,7 +141,9 @@ display: inline;
     width: 100px;
     position: absolute;
     left: 380px;
-    bottom:820px ;
+    bottom:825px ;
+    color:red;
+    font-size: 25px;
 }
 
 .time-passed {
@@ -142,17 +154,28 @@ display: inline;
 .clock {
     display: inline;
     position: absolute;
-    left: 380px;
-    bottom: 810px;
+    left: 250px;
+    bottom: 800px;
+    color: lightsteelblue;
+    font-size: 20px;
 }
 
+.best-score-header {
+    display: inline;
+    width: 250px;
+    position: absolute;
+    left: 250px;
+    bottom: 750px;
+    color: gold;
+}
 
 .best-score {
     display: inline;
     width: 250px;
     position: absolute;
-    left: 260px;
-    bottom: 740px;
+    left: 280px;
+    bottom: 720px;
+    color: gold;
 }
 
 
@@ -187,8 +210,10 @@ display: inline;
     position: absolute;
     left: 550px;
     bottom: 720px;
-    background-color:chartreuse
-    
+    background-color:chartreuse;
+    border-radius: 20px;
+    height: 50px;
+    padding: 10px;
 }
 
 .level8 {
@@ -196,6 +221,9 @@ display: inline;
     left: 650px;
     bottom: 720px;
     background-color:purple;
+    border-radius: 20px;
+    height: 50px;
+    padding: 10px;
 }
 
 .level12 {
@@ -203,4 +231,7 @@ display: inline;
     left: 750px;
     bottom: 720px;
     background-color: red ;
+    border-radius: 20px;
+    height: 50px;
+    padding: 10px;
 }

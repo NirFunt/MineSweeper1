@@ -3,6 +3,7 @@
 
 // initGame() called when HTML page load, and when restart() called
 function initGame() {
+    document.querySelector('.table').addEventListener('contextmenu', e => {e.preventDefault();});
     updateHeaders(); // update headers of Lives and Time Passed
     gBoard = [];
     gGameSaves = [];
@@ -10,7 +11,7 @@ function initGame() {
 
     buildBoard(gBoard); // create our Model, the Model will hold all the data needed by object, arrays, etc. the DOM would be updated by taking data from our gBoard model, we can update everytime the DOM to different values by taking different data from our Model as needed for the state of the game
     renderBoard(gBoard); // construct the UI table the data it arriving from our Model gBoard which contains all the data
-    takeContexMenuOff(); // after creating all td elements we add to them a lisener to remove the contexmenu of each td
+    // takeContexMenuOff(); // after creating all td elements we add to them a lisener to remove the contexmenu of each td
     document.querySelector('.best-score span').innerText = localStorage.getItem(`best-score-level-${gLevel.size}`);
     // gGameSaves.push( {board : copyMatrix(gBoard), life : gGame.lives });
 }
@@ -55,7 +56,7 @@ function lose() {
                 gBoard[i][j].isShown = true;
                 var elMineCell = document.querySelector(`.cell-${i}-${j}`);
                 elMineCell.classList.remove('cover');
-                elMineCell.innerHTML = '<img src="img/bomb.png">';
+                elMineCell.innerHTML = '🧨';
             }
         }
     }
@@ -72,7 +73,7 @@ function restart() {
     document.querySelector('.end-game h1').style.display = 'none';
 
     // reboot all our counters and variables so they would be ready for new game
-    gIsFirstMove = false;
+    gIsFirstMovePlayed = false;
     gStartTime = 0;
     gReveledMines = 0;
     gGame.shownCount = 0;

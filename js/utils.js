@@ -149,8 +149,8 @@ function renderMinesAndAmounts () {
   for (var i = 0; i < gBoard.length; i++) {
       for (var j = 0; j < gBoard[0].length; j++) {
           var elCell = document.querySelector(`.cell-${i}-${j}`);
-          if (gBoard[i][j].isMine && gBoard[i][j].isShown) elCell.innerHTML = '<img src="img/bomb.png">';
-          else if (gBoard[i][j].isShown) elCell.innerHTML = gBoard[i][j].minesAroundCount;
+          if (gBoard[i][j].isMine && gBoard[i][j].isShown) elCell.innerHTML = '🧨';
+          else if (gBoard[i][j].isShown) UpdateDOMBombsNoExpand (elCell, i, j);
       }
   }
 }
@@ -162,3 +162,4 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min);
 }
+

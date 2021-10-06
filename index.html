@@ -32,14 +32,15 @@
         <button class="seven-boom" onclick="sevenBoom()">7 BOOM</button>
 
         <div class="clock">
-            <h3 class="time-passed">Time Passed: <span> </span> </h3>
+            <h3 class="time-passed">Timer: <span> </span> </h3>
         </div>
 
         <img class="face" onclick="restart()" src="img/happy.jpg">
 
-        <h2 class="lives">Lives: <span></span> </h2>
+        <h3 class="lives">Lives: <span></span> </h3>
 
-        <h2 class="best-score">Best Score: <span></span> </h2>
+        <h3 class="best-score-header">Best Score <span></span> </h3>
+        <h2 class="best-score"> <span></span></h2>
 
         <button class="level4" onclick="setLevel(4,2)">Beginner</button>
         <button class="level8" onclick="setLevel(8,12)">Medium</button>
@@ -51,13 +52,13 @@
 
     </div>
 
-    <table border="1">
+    <table border="1" class="table">
         <tbody class="game-table"></tbody>
     </table>
 
     <script src="js/game-handler.js"></script>
     <script src="js/gvariables.js"></script>
-    <script src="js/cell-clicked.js"></script>
+    <script src="js/cell-clicked-handler.js"></script>
     <script src="js/buttons-handler.js"></script>
     <script src="js/utils.js"></script>
     

@@ -7,7 +7,7 @@ const Lives = 3;
 var gStartTime = 0;
 var gTimeInterval;
 var gReveledMines = 0;
-var gIsFirstMove = false;
+var gIsFirstMovePlayed = false;
 
 var gBoard;
 
@@ -32,3 +32,5 @@ var gPlacesMines = 0;
 
 var gGameSaves;
 var gIsFirstUndo = true;
+
+var gIsManu7BOOMFirstMovePassed = false;
