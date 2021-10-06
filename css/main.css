@@ -4,7 +4,7 @@
 
 body { 
     background-color: lightskyblue;
-    background-image: url("/img/explode4.png");
+    background-image: url("../img/explode4.png);
     background-repeat: no-repeat;
     /* background-position: center center; */
     /* background-attachment: fixed; */
