@@ -401,5 +401,6 @@ function sevenBoom () {
     renderBoard(gBoard); 
     takeContexMenuOff(); 
     gIsFirstMove = true;
+    gLevel.mines = parseInt((gLevel.size**2)/7);
 }
 
