@@ -382,3 +382,24 @@ function undo () {
     renderMinesAndAmounts();
 }
 
+function sevenBoom () {
+    if (gIsFirstMove) return;
+    var sevenIdxBombs = [];
+    for (var i = 1; i <= gLevel.size**2; i++) {
+        if (i % 7 === 0) sevenIdxBombs [i-1] = true;
+        else sevenIdxBombs [i-1] = false;
+    }
+    // console.log(sevenIdxBombs);
+    var counter = 0;
+    for (var i = 0; i < gBoard.length; i++) {
+        for (var j = 0; j < gBoard[0].length; j++) {
+            if (sevenIdxBombs[counter++]) gBoard[i][j].isMine = true;
+        }
+    }
+    // console.log(gBoard);
+    setMinesNegsCount(gBoard); 
+    renderBoard(gBoard); 
+    takeContexMenuOff(); 
+    gIsFirstMove = true;
+}
+

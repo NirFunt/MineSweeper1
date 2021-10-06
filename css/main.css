@@ -85,14 +85,17 @@ display: inline;
 .hint1 {
   position: absolute;
   left: 30px;
+  bottom: 850px;
 }
 .hint2 {
   position: absolute;
   left: 90px;
+  bottom: 850px;
 }
 .hint3 {
     position: absolute;
     left: 150px;
+    bottom: 850px;
 }
 
 .hint-hide {
@@ -103,13 +106,13 @@ display: inline;
     height: 100px;
     position: absolute;
     left: 50px;
-    bottom: 710px;
+    bottom: 730px;
 }
 
 .safe-amount {
     position: absolute;
     left: 135px;
-    bottom: 700px;
+    bottom: 720px;
     padding: 10px;
     color: hotpink;
     font-size: 40px;
@@ -154,20 +157,29 @@ display: inline;
 
 
 .manual-Btn {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     border-radius: 50%;
     position: absolute;
-    left: 550px;
+    left: 650px;
 }
 
 .undo { 
     position: absolute;
-    left: 700px;
-    height: 100px;
-    width: 100px;
+    left: 750px;
+    height: 80px;
+    width: 80px;
     border-radius: 50%;
     background-color: blueviolet;
+}
+
+.seven-boom {
+    position: absolute;
+    left: 550px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-color:brown;
 }
 
 
