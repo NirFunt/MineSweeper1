@@ -39,10 +39,13 @@ function renderBoard(board) {
     strHTML += '<tr>\n'
     for (var j = 0; j < board[0].length; j++) {
       var cellClassList = `cell-${i}-${j} `;
+      var cellValue = '';
       if (!board[i][j].isShown) {
         cellClassList += 'cover';
+        if (board[i][j].isMarked) cellValue = '<img src="img/red-flag.png">';
       }
-      strHTML += ` <td class="${cellClassList}" onclick="cellClicked(this, ${i}, ${j})" oncontextmenu="cellMarked(this, ${i} ,${j})"  >  </td>\n`;
+
+      strHTML += ` <td class="${cellClassList}" onclick="cellClicked(this, ${i}, ${j})" oncontextmenu="cellMarked(this, ${i} ,${j})"  > ${cellValue} </td>\n`;
     }
     strHTML += '</tr>\n'
   }
